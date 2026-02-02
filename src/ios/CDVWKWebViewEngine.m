@@ -737,15 +737,12 @@
 - (void) webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction*)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler
 {
 
-    if (!decisionHandler)
-        return;
-    }
+     // 🔥 REQUIRED for iOS SDK 26
     NSURL* url = [navigationAction.request URL];
     if ([url.scheme isEqualToString:@"ionic"]) {
         decisionHandler(WKNavigationActionPolicyAllow);
         return;
     }
-    decisionHandler(WKNavigationActionPolicyAllow);
     CDVViewController* vc = (CDVViewController*)self.viewController;
 
     /*
