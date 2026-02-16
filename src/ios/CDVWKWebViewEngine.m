@@ -739,7 +739,7 @@
 
      // 🔥 REQUIRED for iOS SDK 26
     NSURL* url = [navigationAction.request URL];
-    if ([url.scheme isEqualToString:@"ionic"]) {
+    if ([url.scheme isEqualToString:@"ionic"] || [url.scheme isEqualToString:@"https"] ) {    
         decisionHandler(WKNavigationActionPolicyAllow);
         return;
     }
